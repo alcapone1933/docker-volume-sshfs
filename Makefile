@@ -1,4 +1,4 @@
-PLUGIN_NAME=ucphhpc/sshfs
+PLUGIN_NAME=alcapone1933plugin/ssh-fs
 PLUGIN_TAG?=latest
 
 all: clean rootfs create
