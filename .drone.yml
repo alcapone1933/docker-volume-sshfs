@@ -18,7 +18,7 @@ steps:
       - docker info
       - echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin
       - apt-get update && apt-get install -yq make
-      - sed -i "s/ucphhpc\/sshfs/alcapone1933plugin\/ssh-fs/g" Makefile-test
+      - sed -i "s/ucphhpc\/sshfs/alcapone1933plugin\/ssh-fs/g" Makefile
       - make push
 
 trigger:
