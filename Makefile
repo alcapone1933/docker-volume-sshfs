@@ -1,5 +1,6 @@
 PLUGIN_NAME=alcapone1933plugin/ssh-fs
 PLUGIN_TAG?=latest
+PLATFORMS=linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v8
 
 all: clean rootfs create
 
@@ -28,10 +29,16 @@ enable:
 	@echo "### enable plugin ${PLUGIN_NAME}:${PLUGIN_TAG}"		
 	@docker plugin enable ${PLUGIN_NAME}:${PLUGIN_TAG}
 
+# https://github.com/docker/buildx/issues/1513
 push:  clean rootfs create enable
 	@echo "### push plugin ${PLUGIN_NAME}:${PLUGIN_TAG}"
 	@docker plugin push ${PLUGIN_NAME}:${PLUGIN_TAG}
 
+uninstallcheck:
+### PLACEHOLDER (it's purpose is to uninstall depedencies for check) ###
+
+installcheck:
+### PLACEHOLDER (this will install the dependencies for check) ###
 
 check:
 	@.gocd/integration.sh
